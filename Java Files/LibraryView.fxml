@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.LibraryController">
+    <left>
+        <TreeView fx:id="TreeView" prefHeight="636.0" prefWidth="148.0" BorderPane.alignment="CENTER" />
+    </left>
+    <top>
+        <VBox BorderPane.alignment="CENTER">
+            <children>
+                <ToolBar fx:id="MenuBar" nodeOrientation="RIGHT_TO_LEFT" VBox.vgrow="ALWAYS">
+                    <items>
+                  <Button fx:id="exit" mnemonicParsing="false" onAction="#handleExitButton" text="Exit" textAlignment="RIGHT" />
+                        <Button mnemonicParsing="false" onAction="#setAddPicStage" prefHeight="26.0" prefWidth="106.0" text="Add Image" textAlignment="CENTER" />
+                    </items>
+                </ToolBar>
+                <HBox alignment="TOP_CENTER">
+                    <children>
+                        <TextField fx:id="SearchBar" onKeyPressed="#handleSearch" prefHeight="26.0" prefWidth="450.0" promptText="Search for Image" />
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+    </top>
+    <center>
+        <TableView fx:id="library" editable="true" onKeyPressed="#handleDeletePressed" prefHeight="636.0" prefWidth="572.0" BorderPane.alignment="CENTER">
+            <columns>
+                <TableColumn fx:id="NameColumn" prefWidth="100.0" text="Name" />
+                <TableColumn fx:id="TagsColumn" prefWidth="75.0" text="Tags" />
+                <TableColumn fx:id="CommentsColumn" prefWidth="210.0" text="Comments" />
+                <TableColumn fx:id="FileLocationColumn" prefWidth="120.0" text="File Location" />
+                <TableColumn fx:id="PointsColumn" prefWidth="70.0" text="Points" />
+            </columns>
+        </TableView>
+    </center>
+   <right>
+      <VBox alignment="TOP_CENTER" prefHeight="636.0" prefWidth="276.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="imageWindowTitle" alignment="CENTER" contentDisplay="CENTER" text="Label" />
+            <ImageView fx:id="imageWindowImage" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <VBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </VBox.margin>
+            </ImageView>
+            <Label fx:id="imageWindowComment" alignment="CENTER" contentDisplay="CENTER" text="Label">
+               <VBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </VBox.margin>
+            </Label>
+            <HBox alignment="TOP_CENTER" spacing="25.0">
+               <children>
+                  <Button fx:id="changeLinkImageButton" mnemonicParsing="false" text="Image Pair">
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </Button>
+                  <Button onAction="#imageButton" mnemonicParsing="false" text="Open Image">
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </Button>
+               </children>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+            </HBox>
+         </children>
+      </VBox>
+   </right>
+</BorderPane>
